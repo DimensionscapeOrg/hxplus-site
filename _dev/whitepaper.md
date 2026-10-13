@@ -76,9 +76,9 @@ It pairs with a runtime of its own, which makes changes possible that need both 
 
 ## 4. Libraries, not just applications
 
-Haxe's reach has a limit, and it isn't the number of targets. It's where Haxe can sit in a project. Today Haxe has to be the top layer. You write the application in Haxe and the compiler produces a self-contained bundle with its own runtime and standard library. You can pull native or JavaScript libraries in underneath, but Haxe has to be on top.
+Haxe's reach has a limit, and it isn't the number of targets. It's how well Haxe output fits into someone else's project. Haxe can already build libraries, through `@:expose` for JavaScript or as static and shared libraries through hxcpp. But each one carries its own copy of the runtime and standard library, its API isn't shaped like the host language's, and two Haxe libraries in the same project share nothing.
 
-Rust doesn't have that limit. It can be a binary, a WebAssembly module, the native core of a Python package, or just a library another project depends on. That's a big part of how it spreads: people add it to existing projects instead of rewriting projects in it.
+That matters because languages spread through dependencies: people add a library to a project they already have far more often than they rewrite the project.
 
 For Haxe, "write once, run everywhere" works at the application level, which is where every ecosystem's tools and habits are hardest to change. Adopting Haxe usually means moving your project under Haxe instead of adding Haxe as one more dependency, and that's a real cost to adoption.
 

@@ -160,6 +160,7 @@ We think Haxe has an advantage here that hasn't gotten much attention. More and 
 That only helps if the tooling is good, so we're working on:
 
 - **Structured compiler output.** hxc produces machine-readable diagnostics (the same JSON used for editor support), so the write, compile and fix loop is fast and exact.
+- **A toolchain you already have.** OCaml is hard to set up, for people and for AI agents alike, and an agent that can't build the compiler can't test its own changes. hxc builds with the haxe and hxcpp every Haxe user already has.
 - **Mechanical verification.** Because hxc is checked against the reference compiler, contributions, including AI-assisted ones and entire targets, are tested instead of trusted on sight. That's what makes AI-assisted compiler work safe.
 - **A sandbox.** The haxe.run playground, launching soon, compiles and runs Haxe in the browser, and tools can drive it as well as people.
 - **Documentation sized for models.** The language spec, the std and common patterns packaged so current models can write good hx+ without waiting to be trained on it.

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>logo orientation compare</title>
+<style>
+  body { background:#0b0e14; color:#e7eaf0; font-family:system-ui,sans-serif; margin:0; padding:40px; }
+  h1 { font-size:1.1rem; font-weight:600; margin:0 0 28px; }
+  .row { display:grid; grid-template-columns:110px 1fr; align-items:center; gap:24px; margin-bottom:34px; }
+  .label { color:#9aa3b2; font-size:.85rem; font-family:ui-monospace,monospace; }
+  .sizes { display:flex; align-items:center; gap:34px; flex-wrap:wrap; }
+  .sizes img { display:block; }
+  .cap { color:#6b7484; font-size:.72rem; text-align:center; margin-top:6px; font-family:ui-monospace,monospace; }
+  .item { display:flex; flex-direction:column; align-items:center; }
+  .tile { background:#131826; border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px; }
+  .hdr { display:flex; align-items:center; gap:10px; background:rgba(11,14,20,.85); border:1px solid rgba(255,255,255,.08);
+         border-radius:10px; padding:9px 14px; font-family:ui-monospace,monospace; font-weight:700; font-size:1.2rem; }
+  .plus { color:#ff9d2e; }
+  hr { border:0; border-top:1px solid rgba(255,255,255,.08); margin:34px 0; }
+</style>
+</head>
+<body>
+
+<h1>Current (plus silhouette, x in negative space)</h1>
+<div class="row">
+  <span class="label">sizes</span>
+  <div class="sizes">
+    <div class="item"><img src="../assets/logo.svg" width="128"><div class="cap">128</div></div>
+    <div class="item"><img src="../assets/logo.svg" width="64"><div class="cap">64</div></div>
+    <div class="item"><img src="../assets/logo.svg" width="32"><div class="cap">32</div></div>
+    <div class="item"><img src="../assets/logo.svg" width="24"><div class="cap">24 (header)</div></div>
+    <div class="item"><img src="../assets/logo.svg" width="16"><div class="cap">16 (favicon)</div></div>
+    <div class="item"><div class="tile"><img src="assets/favicon.svg" width="48"></div><div class="cap">tile</div></div>
+    <div class="item"><div class="hdr"><img src="../assets/logo.svg" width="24">hx<span class="plus">plus</span></div><div class="cap">lockup</div></div>
+  </div>
+</div>
+
+<hr>
+
+<h1>Rotated 45&deg; (x silhouette, plus in negative space)</h1>
+<div class="row">
+  <span class="label">sizes</span>
+  <div class="sizes">
+    <div class="item"><img src="logo-rot.svg" width="128"><div class="cap">128</div></div>
+    <div class="item"><img src="logo-rot.svg" width="64"><div class="cap">64</div></div>
+    <div class="item"><img src="logo-rot.svg" width="32"><div class="cap">32</div></div>
+    <div class="item"><img src="logo-rot.svg" width="24"><div class="cap">24 (header)</div></div>
+    <div class="item"><img src="logo-rot.svg" width="16"><div class="cap">16 (favicon)</div></div>
+    <div class="item"><div class="tile"><img src="logo-rot.svg" width="48"></div><div class="cap">tile</div></div>
+    <div class="item"><div class="hdr"><img src="logo-rot.svg" width="24">hx<span class="plus">plus</span></div><div class="cap">lockup</div></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og image source</title>
+<style>
+  /* Rendered to assets/og-image.png at exactly 1200x630. See DEPLOY.md. */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1200px; height:630px; overflow:hidden; background:#0b0e14; }
+  .card {
+    width:1200px; height:630px; position:relative; overflow:hidden;
+    display:grid; grid-template-columns: 640px 1fr; align-items:center;
+    padding:0 40px 0 84px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    color:#e7eaf0;
+    background-color:#0b0e14;
+    background-image: radial-gradient(rgba(255,255,255,.05) 1.2px, transparent 1.4px);
+    background-size: 28px 28px;
+  }
+  .glow { position:absolute; right:-160px; top:-120px; width:900px; height:900px; pointer-events:none;
+          background:radial-gradient(closest-side, rgba(255,157,46,.14), transparent 72%); }
+  /* registration marks in the four corners */
+  .tick { position:absolute; width:26px; height:26px; border-color:rgba(255,157,46,.7); border-style:solid; }
+  .tl { left:28px; top:28px; border-width:2px 0 0 2px; }
+  .tr { right:28px; top:28px; border-width:2px 2px 0 0; }
+  .bl { left:28px; bottom:28px; border-width:0 0 2px 2px; }
+  .br { right:28px; bottom:28px; border-width:0 2px 2px 0; }
+  .copy { position:relative; }
+  .brand { display:flex; align-items:center; gap:16px; margin-bottom:34px; }
+  .brand img { width:52px; height:52px; }
+  .brand span { font-family:"Cascadia Code",Consolas,monospace; font-size:40px; font-weight:700; letter-spacing:-.02em; }
+  .plus { color:#ff9d2e; }
+  h1 { font-size:76px; line-height:1.03; letter-spacing:-.035em; font-weight:800; }
+  h1 .accent { color:#ff9d2e; }
+  p { margin-top:28px; font-size:26px; color:#9aa3b2; max-width:19em; line-height:1.4; }
+  .url { margin-top:30px; font-family:"Cascadia Code",Consolas,monospace; font-size:20px; color:#ff9d2e; }
+  .visual { position:relative; display:flex; justify-content:center; }
+  .orbit { width:448px; height:448px; }
+  .orbit-ring { fill:none; stroke:rgba(255,255,255,.14); stroke-dasharray:2 6; }
+  .orbit-ring-inner { stroke:rgba(255,157,46,.45); stroke-dasharray:none; opacity:.5; }
+  .ray { stroke-width:1.5; stroke-linecap:round; }
+  .ray-t1 { stroke:#ff9d2e; stroke-dasharray:3 9; }
+  .ray-go { stroke:#5fd39a; stroke-dasharray:3 9; }
+  .ray-plan { stroke:rgba(255,255,255,.16); stroke-dasharray:2 6; }
+  .core circle { fill:#131826; stroke:#ff9d2e; stroke-width:1.5; }
+  .core-arm { fill:#ff9d2e; }
+  .node rect { fill:#131826; stroke:rgba(255,255,255,.16); }
+  .node text { font-family:"Cascadia Code",Consolas,monospace; font-size:13px; font-weight:600; text-anchor:middle; fill:#9aa3b2; }
+  .node-t1 rect { stroke:rgba(255,157,46,.5); }
+  .node-t1 text { fill:#e7eaf0; }
+  .node-go rect { stroke:#5fd39a; }
+  .node-go text { fill:#5fd39a; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow"></div>
+    <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+    <div class="copy">
+      <div class="brand"><img src="../assets/logo.svg" alt=""><span>hx<span class="plus">plus</span></span></div>
+      <h1>One language.<br>Every platform.<br><span class="accent">Continued.</span></h1>
+      <p>A strict superset of Haxe 4.3, built on a compiler written in Haxe itself.</p>
+      <div class="url">hxplus.org</div>
+    </div>
+    <div class="visual">
+      <svg class="orbit" viewBox="0 0 540 540" role="img" aria-labelledby="orbitTitle">
+        <title id="orbitTitle">One hx+ source compiling to JavaScript, C++, Rust, C#, JVM, WebAssembly, Python, Lua, PHP, SPIR-V shaders, cppia and eval</title>
+        <circle class="orbit-ring" cx="270" cy="270" r="205"/>
+        <circle class="orbit-ring orbit-ring-inner" cx="270" cy="270" r="92"/>
+        <g class="rays">
+          <line class="ray ray-t1" style="--i:0" x1="270.0" y1="196.0" x2="270.0" y2="65.0"/>
+          <line class="ray ray-t1" style="--i:1" x1="307.0" y1="205.9" x2="372.5" y2="92.5"/>
+          <line class="ray ray-go" style="--i:2" x1="334.1" y1="233.0" x2="447.5" y2="167.5"/>
+          <line class="ray ray-plan" style="--i:3" x1="344.0" y1="270.0" x2="475.0" y2="270.0"/>
+          <line class="ray ray-go" style="--i:4" x1="334.1" y1="307.0" x2="447.5" y2="372.5"/>
+          <line class="ray ray-plan" style="--i:5" x1="307.0" y1="334.1" x2="372.5" y2="447.5"/>
+          <line class="ray ray-plan" style="--i:6" x1="270.0" y1="344.0" x2="270.0" y2="475.0"/>
+          <line class="ray ray-plan" style="--i:7" x1="233.0" y1="334.1" x2="167.5" y2="447.5"/>
+          <line class="ray ray-plan" style="--i:8" x1="205.9" y1="307.0" x2="92.5" y2="372.5"/>
+          <line class="ray ray-plan" style="--i:9" x1="196.0" y1="270.0" x2="65.0" y2="270.0"/>
+          <line class="ray ray-t1" style="--i:10" x1="205.9" y1="233.0" x2="92.5" y2="167.5"/>
+          <line class="ray ray-t1" style="--i:11" x1="233.0" y1="205.9" x2="167.5" y2="92.5"/>
+        </g>
+        <g class="core" transform="translate(270 270)">
+          <circle r="68"/>
+          <g transform="scale(0.19) translate(-256 -256)">
+            <polygon class="core-arm" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+            <polygon class="core-arm" transform="rotate(90 256 256)" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+            <polygon class="core-arm" transform="rotate(180 256 256)" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+            <polygon class="core-arm" transform="rotate(270 256 256)" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+          </g>
+        </g>
+        <g class="nodes">
+          <g class="node node-t1" transform="translate(270.0 65.0)"><rect x="-52.5" y="-14" width="105" height="28" rx="14"/><text y="4.6">JavaScript</text></g>
+          <g class="node node-t1" transform="translate(372.5 92.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">C++</text></g>
+          <g class="node node-go" transform="translate(447.5 167.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">Rust</text></g>
+          <g class="node node-plan" transform="translate(475.0 270.0)"><rect x="-21" y="-14" width="42" height="28" rx="14"/><text y="4.6">C#</text></g>
+          <g class="node node-go" transform="translate(447.5 372.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">JVM</text></g>
+          <g class="node node-plan" transform="translate(372.5 447.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">Wasm</text></g>
+          <g class="node node-plan" transform="translate(270.0 475.0)"><rect x="-36.5" y="-14" width="73" height="28" rx="14"/><text y="4.6">Python</text></g>
+          <g class="node node-plan" transform="translate(167.5 447.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">Lua</text></g>
+          <g class="node node-plan" transform="translate(92.5 372.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">PHP</text></g>
+          <g class="node node-plan" transform="translate(65.0 270.0)"><rect x="-36.5" y="-14" width="73" height="28" rx="14"/><text y="4.6">SPIR-V</text></g>
+          <g class="node node-t1" transform="translate(92.5 167.5)"><rect x="-33" y="-14" width="66" height="28" rx="14"/><text y="4.6">cppia</text></g>
+          <g class="node node-t1" transform="translate(167.5 92.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">eval</text></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

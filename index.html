@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hx+ | A community superset of Haxe</title>
+<meta name="description" content="hx+ is a strict superset of Haxe 4.3, built on hxc, a compiler written in Haxe itself. One language, every platform, continued.">
+<link rel="canonical" href="https://hxplus.org/">
+
+<!-- Social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="hx+">
+<meta property="og:title" content="hx+ | A community superset of Haxe">
+<meta property="og:description" content="A strict superset of Haxe 4.3, built on hxc, a compiler written in Haxe itself. Your code compiles unchanged. One language, every platform, continued.">
+<meta property="og:url" content="https://hxplus.org/">
+<meta property="og:image" content="https://hxplus.org/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="hx+ | A community superset of Haxe">
+<meta name="twitter:description" content="A strict superset of Haxe 4.3, built on hxc, a compiler written in Haxe itself. Your code compiles unchanged.">
+<meta name="twitter:image" content="https://hxplus.org/assets/og-image.png">
+<meta name="theme-color" content="#0b0e14">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- Apply the saved theme before first paint, so light-mode visitors never see a dark flash. -->
+<script>
+try {
+  var t = localStorage.getItem('hxplus-theme');
+  if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#top">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top"><img class="logo" src="assets/logo.svg" alt="">hx<span class="plus">plus</span></a>
+    <nav class="site-nav" id="siteNav">
+      <a href="#why">Why</a>
+      <a href="#compiler">Compiler</a>
+      <a href="#language">Language</a>
+      <a href="#targets">Targets</a>
+      <a href="#toolchain">Toolchain</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-out" href="https://haxe.run">Playground <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="tt-sun">&#9728;</span><span class="tt-moon">&#9790;</span></button>
+    <a class="btn btn-small" href="#whitepaper">Whitepaper</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+    <noscript><style>.site-nav{display:flex !important;position:static;flex-direction:row;flex-wrap:wrap;background:none;border:none;padding:0;margin-left:auto}.nav-toggle,.theme-toggle{display:none !important}.site-nav a{border:none;padding:0;font-size:.92rem}</style></noscript>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="badges">
+          <span class="badge">Superset of Haxe 4.3</span>
+          <span class="badge">MPL-2.0</span>
+          <span class="badge badge-live"><span class="live-dot"></span>In development</span>
+        </div>
+        <h1>One language.<br>Every platform.<br><span class="accent">Continued.</span></h1>
+        <p class="lede">
+          A strict superset of Haxe 4.3, built on <strong>hxc</strong>, a faithful Haxe compiler written in Haxe.
+          Every valid Haxe program compiles unchanged, and keeping it that way is the project's
+          first commitment. On that foundation: the language features the community has asked for,
+          a modern toolchain, and a compiler built so that adding platforms is cheap.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#whitepaper">Read the whitepaper</a>
+          <a class="btn btn-ghost" href="https://haxe.run">Try it in the browser</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg class="orbit" viewBox="0 0 540 540" role="img" aria-labelledby="orbitTitle">
+          <title id="orbitTitle">One hx+ source compiling to JavaScript, C++, Rust, C#, JVM, WebAssembly, Python, Lua, PHP, SPIR-V shaders, cppia and eval</title>
+          <circle class="orbit-ring" cx="270" cy="270" r="205"/>
+          <circle class="orbit-ring orbit-ring-inner" cx="270" cy="270" r="92"/>
+          <g class="rays">
+            <line class="ray ray-t1" style="--i:0" x1="270.0" y1="196.0" x2="270.0" y2="65.0"/>
+            <line class="ray ray-t1" style="--i:1" x1="307.0" y1="205.9" x2="372.5" y2="92.5"/>
+            <line class="ray ray-go" style="--i:2" x1="334.1" y1="233.0" x2="447.5" y2="167.5"/>
+            <line class="ray ray-plan" style="--i:3" x1="344.0" y1="270.0" x2="475.0" y2="270.0"/>
+            <line class="ray ray-go" style="--i:4" x1="334.1" y1="307.0" x2="447.5" y2="372.5"/>
+            <line class="ray ray-plan" style="--i:5" x1="307.0" y1="334.1" x2="372.5" y2="447.5"/>
+            <line class="ray ray-plan" style="--i:6" x1="270.0" y1="344.0" x2="270.0" y2="475.0"/>
+            <line class="ray ray-plan" style="--i:7" x1="233.0" y1="334.1" x2="167.5" y2="447.5"/>
+            <line class="ray ray-plan" style="--i:8" x1="205.9" y1="307.0" x2="92.5" y2="372.5"/>
+            <line class="ray ray-plan" style="--i:9" x1="196.0" y1="270.0" x2="65.0" y2="270.0"/>
+            <line class="ray ray-t1" style="--i:10" x1="205.9" y1="233.0" x2="92.5" y2="167.5"/>
+            <line class="ray ray-t1" style="--i:11" x1="233.0" y1="205.9" x2="167.5" y2="92.5"/>
+          </g>
+          <g class="core" transform="translate(270 270)">
+            <circle r="68"/>
+            <g transform="scale(0.19) translate(-256 -256)">
+              <polygon class="core-arm" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+              <polygon class="core-arm" transform="rotate(90 256 256)" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+              <polygon class="core-arm" transform="rotate(180 256 256)" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+              <polygon class="core-arm" transform="rotate(270 256 256)" points="227,48 285,48 285,136 352,136 256,232 160,136 227,136"/>
+            </g>
+          </g>
+          <g class="nodes">
+            <g class="node node-t1" transform="translate(270.0 65.0)"><rect x="-52.5" y="-14" width="105" height="28" rx="14"/><text y="4.6">JavaScript</text></g>
+            <g class="node node-t1" transform="translate(372.5 92.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">C++</text></g>
+            <g class="node node-go" transform="translate(447.5 167.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">Rust</text></g>
+            <g class="node node-plan" transform="translate(475.0 270.0)"><rect x="-21" y="-14" width="42" height="28" rx="14"/><text y="4.6">C#</text></g>
+            <g class="node node-go" transform="translate(447.5 372.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">JVM</text></g>
+            <g class="node node-plan" transform="translate(372.5 447.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">Wasm</text></g>
+            <g class="node node-plan" transform="translate(270.0 475.0)"><rect x="-36.5" y="-14" width="73" height="28" rx="14"/><text y="4.6">Python</text></g>
+            <g class="node node-plan" transform="translate(167.5 447.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">Lua</text></g>
+            <g class="node node-plan" transform="translate(92.5 372.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">PHP</text></g>
+            <g class="node node-plan" transform="translate(65.0 270.0)"><rect x="-36.5" y="-14" width="73" height="28" rx="14"/><text y="4.6">SPIR-V</text></g>
+            <g class="node node-t1" transform="translate(92.5 167.5)"><rect x="-33" y="-14" width="66" height="28" rx="14"/><text y="4.6">cppia</text></g>
+            <g class="node node-t1" transform="translate(167.5 92.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">eval</text></g>
+          </g>
+        </svg>
+        <ul class="orbit-legend" aria-hidden="true">
+          <li><span class="key key-t1"></span>Tier 1</li>
+          <li><span class="key key-go"></span>In progress</li>
+          <li><span class="key key-plan"></span>Planned</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPEC STRIP ============ -->
+  <section class="spec">
+    <div class="container spec-grid">
+      <div class="spec-item"><span class="spec-num">4M+</span><span class="spec-label">downloads of the frameworks we maintain, #1 and #2 on haxelib</span></div>
+      <div class="spec-item"><span class="spec-num">18</span><span class="spec-label">parity gates against the reference compiler, from its unit suite to hxc&#39;s own source</span></div>
+      <div class="spec-item"><span class="spec-num">0</span><span class="spec-label">breaking changes, by design</span></div>
+      <div class="spec-item"><span class="spec-num">30+</span><span class="spec-label">features proposed for the RFC pipeline</span></div>
+    </div>
+  </section>
+
+  <!-- ============ PROMISE ============ -->
+  <section class="section section-alt" id="promise">
+    <div class="container">
+      <p class="eyebrow"><span class="idx">01</span>Compatibility</p>
+      <h2>Your code already works here</h2>
+      <p class="section-lede">
+        hx+ isn't a fork. It contains Haxe 4.3, checked against the reference compiler with Haxe's own test suites. Our compatibility rules:
+      </p>
+      <div class="cards cards-3">
+        <div class="card ticks">
+          <h3>A stable std, guaranteed</h3>
+          <p>Existing standard-library APIs are not changed and not removed. New designs are built
+          alongside, in new namespaces. Deprecation is a warning, never a break, and the narrow
+          exceptions (security fixes, platform withdrawals) are published in advance, Go-style.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Contextual keywords only</h3>
+          <p>No identifier that is legal today stops being legal. New syntax arrives without
+          reserving a single word your code might already use.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Editions for the long term</h3>
+          <p>Long-term evolution happens through per-module editions, in the pattern Rust proved.
+          Code written against the 4.3 edition keeps compiling, in the same build as new code.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section class="section" id="why">
+    <div class="container">
+      <p class="eyebrow"><span class="idx">02</span>Architecture</p>
+      <h2>Why a new compiler</h2>
+      <p class="section-lede">
+        What makes Haxe worth using is how far one codebase reaches: web, native, mobile and server. Keeping that going takes a compiler built for it.
+      </p>
+      <div class="cards cards-2">
+        <div class="card ticks">
+          <h3>Written in Haxe</h3>
+          <p>The compiler is implemented in the language its community writes every day. If you
+          write Haxe, you can read, debug, and improve your own compiler. Rust, Go, C# and Kotlin all made the same move.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Checked against the real compiler</h3>
+          <p>hxc is tested against the reference Haxe 4.3 compiler with Haxe's own test suites, and the output is compared byte for byte. A target counts as conformant when it passes the same suite.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Cheaper targets</h3>
+          <p>A target is a package of Haxe source compiled into hxc: what it can do, its own filter
+          passes, its generator and its build step. The built-in targets use the same interface, so the people who need a platform can maintain it themselves, and the conformance suite tells them when it's right.</p>
+        </div>
+        <div class="card ticks">
+          <h3>More targets, less risk</h3>
+          <p>Haxe runs on other people's runtimes, so when a platform dies, code that can only run there dies with it. Haxe outlived Flash because the same code could move to other targets. Every target is one more place to land.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPILER ============ -->
+  <section class="section section-alt" id="compiler">
+    <div class="container">
+      <p class="eyebrow"><span class="idx">03</span>The compiler</p>
+      <h2>hxc: the compiler underneath</h2>
+      <p class="section-lede">
+        Underneath hx+ sits <strong>hxc</strong>, a faithful Haxe 4.3 compiler, written in Haxe and checked against the reference compiler with Haxe's own test suites.
+      </p>
+
+      <div class="precedent ticks">
+        <p class="precedent-title">Most serious languages end up compiling themselves</p>
+        <ol class="lineage">
+          <li><span class="plang">C</span><span class="pfrom">from assembly</span><span class="pto">self-hosted since the 1970s</span></li>
+          <li><span class="plang">Rust</span><span class="pfrom">from OCaml</span><span class="pto">rustc, self-compiling since 2011</span></li>
+          <li><span class="plang">Go</span><span class="pfrom">from C</span><span class="pto">entirely Go as of 1.5</span></li>
+          <li><span class="plang">C#</span><span class="pfrom">from C++</span><span class="pto">Roslyn, C# in C#</span></li>
+          <li><span class="plang">Kotlin</span><span class="pfrom">from Java</span><span class="pto">compiler written in Kotlin</span></li>
+          <li class="lineage-now"><span class="plang">Haxe</span><span class="pfrom">from OCaml</span><span class="pto">hxc</span></li>
+        </ol>
+        <p class="precedent-note">Rust's first compiler was written in OCaml and was replaced once Rust could compile itself. TypeScript went the other way: Microsoft moved its compiler to Go for speed, because TypeScript compiles to JavaScript. Haxe compiles to native code, so hxc is self-hosted and still a native binary.</p>
+      </div>
+
+      <div class="compiler-grid">
+        <ul class="checklist">
+          <li><strong>Self-hosted.</strong> The compiler is written in Haxe, so if you write Haxe you can read, debug and fix your own compiler in the editor you already use.</li>
+          <li><strong>Checked, not trusted.</strong> Haxe's unit suite at zero failures, with output and compiler messages compared byte for byte against the reference compiler.</li>
+          <li><strong>Native.</strong> Built with hxcpp into a native binary, so being written in Haxe doesn't cost speed.</li>
+          <li><strong>Built to be extended.</strong> The typer, filters and optimizer ask a target
+          what it can do and never which target it is. A target is compiled into hxc from its own
+          package, so any community can own its platform.</li>
+        </ul>
+        <div>
+          <div class="code-window">
+            <div class="code-titlebar"><span class="code-filename">terminal</span></div>
+<pre><code><span class="c"># same CLI, same hxml, same output</span>
+<span class="k">$</span> hxc build.hxml
+<span class="k">$</span> haxe build.hxml
+<span class="k">$</span> diff -r out/hxc out/haxe
+<span class="s">  identical</span></code></pre>
+          </div>
+          <p class="code-caption">Same command line, same output.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BROWSER ============ -->
+  <section class="section browser-band" id="browser">
+    <div class="container browser-grid">
+      <div>
+        <p class="eyebrow"><span class="idx">04</span>In the browser</p>
+        <h2>The compiler, in a browser tab</h2>
+        <p class="section-lede">
+          Because hxc is ordinary Haxe, it compiles to WebAssembly like any other Haxe program.
+          The result runs entirely client-side: write Haxe, compile it, run it, and share it by
+          link, with no build server and nothing to install. OpenFL projects compile and render the
+          same way.
+        </p>
+        <p class="section-lede section-lede-tight">
+          That is <strong>haxe.run</strong>, the playground every hx+ proposal will ship with, so the
+          community can argue about a feature by running it.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://haxe.run">Open haxe.run</a>
+        </div>
+      </div>
+
+      <div class="playground-mock ticks" aria-hidden="true">
+        <div class="pm-bar">
+          <span class="pm-brand"><img src="assets/logo.svg" alt=""><span>haxe<span class="plus">.run</span></span></span>
+          <span class="pm-run">&#9654; Run</span>
+        </div>
+        <div class="pm-body">
+<pre class="pm-code"><code><span class="k">class</span> Main {
+    <span class="k">static function</span> <span class="f">main</span>() {
+        trace(<span class="s">"Hello from haxe.run"</span>);
+
+        <span class="k">var</span> sum = <span class="n">0</span>;
+        <span class="k">for</span> (i <span class="k">in</span> <span class="n">1</span>...<span class="n">11</span>) sum += i;
+        trace(<span class="s">'sum 1..10 = $sum'</span>);
+    }
+}</code></pre>
+          <div class="pm-out">
+            <span class="pm-out-head">Console</span>
+            <span class="pm-line">Main.hx:3: Hello from haxe.run</span>
+            <span class="pm-line">Main.hx:7: sum 1..10 = 55</span>
+            <span class="pm-meta">compiled in the tab, no server</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LANGUAGE ============ -->
+  <section class="section section-alt" id="language">
+    <div class="container">
+      <div class="language-intro">
+        <div>
+          <p class="eyebrow"><span class="idx">05</span>The language</p>
+          <h2>What hx+ adds</h2>
+          <p class="section-lede">
+          First, the features Haxe developers have requested for years. Then a public RFC pipeline,
+          where every proposal ships with a live playground so the community debates by trying, not imagining.
+          </p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar"><span class="code-filename">Save.hx</span><span class="code-tag">hx+</span></div>
+<pre><code><span class="c">// Real constants, evaluated at compile time</span>
+<span class="k">const</span> TAU = <span class="n">2</span> * Math.PI;
+
+<span class="c">// try / catch / finally, at last</span>
+<span class="k">function</span> <span class="f">save</span>(state:GameState) {
+    <span class="k">var</span> file = File.write(SAVE_PATH);
+    <span class="k">try</span> {
+        file.writeString(state.serialize());
+    } <span class="k">catch</span> (e:IoError) {
+        Log.warn(<span class="s">'Save failed: ${e.message}'</span>);
+    } <span class="k">finally</span> {
+        file.close();
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="cards cards-3">
+        <div class="card ticks">
+          <h3><code>try / catch / finally</code></h3>
+          <p>Requested for over a decade. Implemented directly in the compiler, lowered per target
+          to native <code>finally</code> where the platform has one.</p>
+        </div>
+        <div class="card ticks">
+          <h3><code>const</code>: real constants</h3>
+          <p>Initializers evaluated at compile time and spliced as literals, powered by the
+          compiler's own eval engine. A guarantee <code>final</code> never gave you.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Records &amp; structural equality</h3>
+          <p>Declarations with derived equality, hashing, and copying, generated at compile time.
+          The end of hand-rolled deep-equals in every project.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Modern networking</h3>
+          <p>A clean-sheet, dual-stack networking package: IPv6 at last, TLS and WebSockets as
+          part of it, and an HTTP client and server. The legacy API stays working.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Coroutines, absorbed</h3>
+          <p>Structured async on the Haxe 4.3 base, on our own schedule: modern ergonomics and the
+          full target matrix, without choosing between them.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Compile-time toolkit</h3>
+          <p><code>nameof</code>, <code>static assert</code>, and compile-time file embedding,
+          powered by the eval engine the compiler already carries.</p>
+        </div>
+      </div>
+
+      <div class="pipeline">
+        <h3 class="pipeline-title">Proposed for the RFC pipeline</h3>
+
+        <div class="chip-group">
+          <span class="chip-label">Syntax</span>
+          <div class="chips">
+            <span class="chip">tuples &amp; multi-return</span>
+            <span class="chip">destructuring</span>
+            <span class="chip">using &amp; defer</span>
+            <span class="chip">cascade operator ..</span>
+            <span class="chip">let-else bindings</span>
+            <span class="chip">pipe operator |&gt;</span>
+            <span class="chip">safe cast as?</span>
+            <span class="chip">opaque typedefs</span>
+            <span class="chip">property shorthand</span>
+            <span class="chip">enum methods</span>
+            <span class="chip">range slicing &amp; membership</span>
+            <span class="chip">raw string literals</span>
+            <span class="chip">tagged templates</span>
+            <span class="chip">digit separators</span>
+            <span class="chip">binary literals</span>
+          </div>
+        </div>
+
+        <div class="chip-group">
+          <span class="chip-label">Compile time</span>
+          <div class="chips">
+            <span class="chip">records &amp; structural equality</span>
+            <span class="chip">method contracts</span>
+            <span class="chip">static assert</span>
+            <span class="chip">nameof</span>
+            <span class="chip">compile-time embed</span>
+            <span class="chip">compile-time evaluation</span>
+          </div>
+        </div>
+
+        <div class="chip-group">
+          <span class="chip-label">Standard library</span>
+          <div class="chips">
+            <span class="chip">WebSockets &amp; TLS</span>
+            <span class="chip">modern crypto</span>
+            <span class="chip">modern date &amp; time</span>
+            <span class="chip">sized numerics u8..i64, f32</span>
+            <span class="chip">Unicode utilities</span>
+            <span class="chip">BigInteger</span>
+            <span class="chip">std test runner</span>
+          </div>
+        </div>
+
+        <div class="chip-group">
+          <span class="chip-label">Type system &amp; editions</span>
+          <div class="chips">
+            <span class="chip chip-deep">strict null safety</span>
+            <span class="chip chip-deep">named &amp; named-only arguments</span>
+            <span class="chip chip-deep">union types with narrowing</span>
+            <span class="chip chip-deep">async / await on coroutines</span>
+            <span class="chip chip-deep">overloading for classes</span>
+            <span class="chip chip-deep">smart casts</span>
+          </div>
+        </div>
+
+        <p class="pipeline-note">Nearly every item here traces to a longstanding request in the Haxe issue tracker, some open for a decade: this is largely the community's own wishlist, aged in public.
+        The deeper type-system work, shown dashed, arrives through editions where it must.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TARGETS ============ -->
+  <section class="section" id="targets">
+    <div class="container">
+      <p class="eyebrow"><span class="idx">06</span>Platforms</p>
+      <h2>Targets</h2>
+      <p class="section-lede">
+        Tier 1 targets are maintained by the core team and release-gated on full conformance.
+        Tier 2 targets are community-maintained through the Target SDK, measured by the same public suite.
+        A community target that keeps passing can move up a tier. The targets marked <em>considering</em> are the kind the SDK is meant to let communities own.
+      </p>
+
+      <div class="board">
+        <div class="board-col ticks">
+          <p class="board-head"><span class="key key-t1"></span>Tier 1<span class="board-sub">core maintained</span></p>
+          <ul>
+            <li>JavaScript</li>
+            <li>C++ <span class="aside">hxcpp</span></li>
+            <li>eval <span class="aside">macros</span></li>
+            <li>cppia</li>
+          </ul>
+        </div>
+        <div class="board-col ticks">
+          <p class="board-head"><span class="key key-plan"></span>Coming<span class="board-sub">in order of need</span></p>
+          <ul>
+            <li class="going">Rust <span class="aside">in progress</span></li>
+            <li>C# <span class="aside">modern .NET</span></li>
+            <li>Java <span class="aside">modern JVM</span></li>
+            <li>WebAssembly <span class="aside">WasmGC</span></li>
+            <li class="going">JVM bytecode <span class="aside">in progress</span></li>
+            <li>PHP</li>
+            <li>Python</li>
+            <li>Lua</li>
+          </ul>
+        </div>
+        <div class="board-col ticks">
+          <p class="board-head"><span class="key key-cons"></span>Considering<span class="board-sub">SDK-shaped</span></p>
+          <ul>
+            <li>Kotlin</li>
+            <li>TypeScript emission</li>
+            <li>Go</li>
+            <li>Swift</li>
+          </ul>
+          <p class="board-foot"><span class="key key-t2"></span>Tier 2: any community target that sustains conformance through the SDK.</p>
+        </div>
+      </div>
+
+      <div class="notes-grid">
+        <div class="note-card">
+          <h4>Tiers can change</h4>
+          <p>A Tier 2 target whose community keeps it conformant can move up. HashLink bytecode and Flash are Tier 2: welcome, but not promised.</p>
+        </div>
+        <div class="note-card">
+          <h4>Retiring Neko</h4>
+          <p>Neko is a custom runtime the ecosystem maintains by hand, no products ship on it, and eval, cppia and HashLink cover what it does. We'll retire a target nobody depends on, never one people rely on.</p>
+        </div>
+      </div>
+
+      <div class="plug">
+        <p class="shader-kicker">How a target plugs in</p>
+        <h3 class="plug-title">The pipeline stays fixed. The target fills its slots.</h3>
+        <p class="plug-lede">The typer, filters and optimizer never test which target is selected; they
+        read what it declared it can do. Everything target-specific arrives through three kinds of
+        contribution, and the built-in targets use exactly the same interface as anyone else's.</p>
+
+        <ol class="flow" aria-label="Compilation pipeline">
+          <li class="flow-target"><span class="flow-name">configure</span><span class="flow-who">target</span></li>
+          <li><span class="flow-name">parse &amp; type</span><span class="flow-who">core</span></li>
+          <li class="flow-mixed"><span class="flow-name">filters</span><span class="flow-who">+ target passes</span></li>
+          <li><span class="flow-name">analyzer</span><span class="flow-who">core</span></li>
+          <li class="flow-mixed"><span class="flow-name">filters</span><span class="flow-who">+ target passes</span></li>
+          <li class="flow-target"><span class="flow-name">generate</span><span class="flow-who">target</span></li>
+          <li class="flow-target"><span class="flow-name">build</span><span class="flow-who">target</span></li>
+        </ol>
+
+        <div class="plug-grid">
+          <div class="plug-item">
+            <h4>Capabilities</h4>
+            <p>Plain data, resolved once before typing: overloads, null padding, capture policy,
+            analyzer and optimizer rules. Read in the hot paths as fields, so a plugged-in target
+            compiles as fast as a built-in one.</p>
+          </div>
+          <div class="plug-item">
+            <h4>Passes</h4>
+            <p>Filters the target places at named slots in the compiler's pipeline, before or after a
+            named pass. The order itself never changes.</p>
+          </div>
+          <div class="plug-item">
+            <h4>Stages</h4>
+            <p>Whole-program calls: configure, generate, and build, where the target chooses its own
+            runtime and toolchain.</p>
+          </div>
+        </div>
+
+        <div class="note-card plug-note">
+          <h4>A second C++ backend, beside the first</h4>
+          <p>C++ moves behind the interface first, so a second C++ backend can grow next to the
+          original instead of replacing it in place. It starts byte-identical, diverges on purpose with
+          the original as its live reference, and pairs with a runtime of its own, which makes changes
+          that need both sides possible, such as precise GC roots. It reports itself as C++, so
+          <code>#if cpp</code> code in Lime, OpenFL and native extensions compiles unchanged.</p>
+        </div>
+      </div>
+
+      <div class="shader-block">
+        <div class="shader-copy">
+          <p class="shader-kicker">A different kind of target</p>
+          <h3>Shaders, in the same language and the same types</h3>
+          <p>Graphics code is the daily work of much of this ecosystem, written today in a separate
+          language, with separate types, checked by nothing until it fails at runtime. A shader target
+          compiles a restricted subset of hx+ to SPIR-V, with WGSL, GLSL, and HLSL alongside.</p>
+          <p>What makes it useful is that both sides use the same types, so uniforms, vertex attributes and buffer layouts are checked by the compiler instead of turning up as a black screen.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-titlebar"><span class="code-filename">Wave.hx</span><span class="code-tag">SPIR-V</span></div>
+<pre><code><span class="c">// one declaration, both sides of the boundary</span>
+<span class="k">@:uniform</span> <span class="k">var</span> time:Float;
+<span class="k">@:uniform</span> <span class="k">var</span> tint:Vec4;
+
+<span class="k">@:shader</span>(<span class="s">fragment</span>)
+<span class="k">function</span> <span class="f">main</span>(uv:Vec2):Vec4 {
+    <span class="k">var</span> wave = sin(uv.x * <span class="n">12</span> + time) * <span class="n">0.5</span>;
+    <span class="k">return</span> tint * (<span class="n">0.5</span> + wave);
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="engines">
+        <p class="engines-title">One language, every engine</p>
+        <p class="engines-lede">Most Haxe code that reaches consumers ships inside a game engine. The
+        community proved the demand and the technique; these deserve a toolchain that treats them as
+        first-class.</p>
+        <div class="engine-grid">
+          <div class="engine ticks">
+            <h4>Unreal Engine</h4>
+            <p>Building on the hxcpp path unreal.hx proved in commercial production: Haxe classes as
+            UCLASS citizens, Blueprint interop, full engine API access.</p>
+          </div>
+          <div class="engine ticks">
+            <h4>Godot</h4>
+            <p>The GDExtension route via hxcpp, as HxGodot demonstrates, with the Rust target as a second
+            integration avenue as it matures.</p>
+          </div>
+          <div class="engine ticks">
+            <h4>Unity</h4>
+            <p>Riding the new C# target: Haxe compiling to idiomatic, modern C# that Unity consumes
+            natively.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLCHAIN ============ -->
+  <section class="section section-alt" id="toolchain">
+    <div class="container">
+      <p class="eyebrow"><span class="idx">07</span>Developer experience</p>
+      <h2>The toolchain is the language</h2>
+      <p class="section-lede">What pushes teams away from Haxe usually isn't syntax. It's tooling.</p>
+      <div class="cards cards-2">
+        <div class="card ticks">
+          <h3>Real dependency management</h3>
+          <p>Per-project, lockfile-based, reproducible builds with content hashes. Vendoring for
+          studio CI. A registry with target and edition compatibility metadata, and a bridge so
+          existing haxelib packages keep working from day one.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Diagnostics as a product</h3>
+          <p>Error messages with explanations, suggestions, and documented error codes. The same
+          structured output that helps you repair code is what makes AI-assisted development precise.</p>
+        </div>
+        <div class="card ticks">
+          <h3>The live loop</h3>
+          <p>An official REPL, powered by the compiler's own eval engine. Watch-mode builds and
+          hot-reloadable scripting. The tight development loop as a toolchain feature, not an accident.</p>
+        </div>
+        <div class="card ticks">
+          <h3>Editions for the long run</h3>
+          <p>Strict null safety by default, delivered as an edition your project adopts module by
+          module. The language moves; nobody's code is left behind.</p>
+        </div>
+        <div class="card ticks card-wide">
+          <h3>hxia: Haxe Intermediate Assembly</h3>
+          <p>A scripting layer for shipped applications: one artifact that loads into the native
+          build and the web build of the same program. The runtime is Haxe compiled into the host,
+          so script values <em>are</em> host values, with no marshalling boundary and no second heap.
+          Untrusted content runs on a metered, capability-gated tier; trusted content takes the
+          fastest engine each host already has. Modding, plugins, and live content, portably.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROADMAP ============ -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <p class="eyebrow"><span class="idx">08</span>The plan</p>
+      <h2>Roadmap</h2>
+      <div class="status-box">
+        <p><strong>Where things stand, honestly.</strong> This work did not begin recently: the earliest
+        prototypes date to the Haxe 3 era. Today hxc compiles real projects and passes an 18-gate parity
+        battery against the reference 4.3 compiler: Haxe's unit suite with JavaScript and C++ output
+        byte-identical across the dead-code and analyzer settings, Haxe's sys and threads suites under its interpreter, every hxcpp test suite, the warm compilation server, and a rebuild of its
+        own source. It builds Lime and OpenFL applications, and compiled to WebAssembly it powers the
+        haxe.run playground. hxia runs: one mod, compiled once, loads into the C++ and JavaScript builds of
+        the same game and plays identically. The experimental Rust backend runs, and a JVM bytecode
+        generator is in progress. The hx+ language features and the modern networking package are designed
+        and specified but not yet shipped. They land in the order below, and nothing here should be read as
+        claiming otherwise.</p>
+      </div>
+      <p class="section-lede">Phases are ordered by what depends on what, and every phase ships something usable on its own.</p>
+      <ol class="timeline">
+        <li class="is-active">
+          <span class="phase-state">Battery green</span>
+          <h3>Phase 1: Parity</h3>
+          <p>Haxe's own suites at parity with the reference 4.3 compiler: eval and macros, then JavaScript,
+          then C++ and cppia. The final gate: Lime and OpenFL build and run, unmodified.</p>
+        </li>
+        <li class="is-active">
+          <span class="phase-state">Underway</span>
+          <h3>Phase 2: In the browser</h3>
+          <p>The compiler running client-side at haxe.run: write, compile, run, share. The whitepaper and community spaces go public alongside the playground.</p>
+        </li>
+        <li>
+          <span class="phase-state">Next</span>
+          <h3>Phase 3: hx+ 1.0</h3>
+          <p>Editions, <code>finally</code>, <code>const</code>, the transpile-to-Haxe mode, and
+          the Target SDK on the target interface, which C++ moves behind first. The Rust backend ships as a
+          preview. The first RFCs open with the release.</p>
+        </li>
+        <li>
+          <span class="phase-state">Planned</span>
+          <h3>Phase 4: The platform</h3>
+          <p>Modern networking (IPv6, TLS, HTTP, WebSockets), the package manager with its haxelib
+          bridge, and the official REPL. Pipeline features begin landing on a steady cadence.</p>
+        </li>
+        <li>
+          <span class="phase-state">Planned</span>
+          <h3>Phase 5: Widening the matrix</h3>
+          <p>Rust to full conformance, and JVM bytecode landed as a target package. Clean-sheet C# and
+          Java. WebAssembly on WasmGC. PHP, Python, and Lua carried forward as their conformance suites go
+          green.</p>
+        </li>
+        <li>
+          <span class="phase-state">Planned</span>
+          <h3>Phase 6: Engines</h3>
+          <p>First-class integration for Unreal Engine, Godot, and Unity: gameplay code written
+          once, moving between engines the way Haxe already moves between platforms.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ WHITEPAPER CTA ============ -->
+  <section class="section section-alt" id="whitepaper">
+    <div class="container whitepaper-cta">
+      <p class="eyebrow eyebrow-center"><span class="idx">09</span>The document</p>
+      <h2>Read the whitepaper</h2>
+      <p class="section-lede">
+        The full case: why we built it, the compiler, the compatibility rules, licensing and the plan.
+      </p>
+      <div class="cta-row cta-center">
+        <a class="btn btn-primary" href="#" aria-disabled="true">Whitepaper (link at launch)</a>
+        <a class="btn btn-ghost" href="#" aria-disabled="true">GitHub (link at launch)</a>
+      </div>
+
+      <div class="invitation">
+        <p class="invitation-title">An invitation</p>
+        <div class="invite-grid">
+          <div class="invite ticks">
+            <span class="invite-num">01</span>
+            <h4>Try it</h4>
+            <p>Bring your existing code; it should simply compile. When it doesn't, that's a bug against
+            a promise, and we want the report.</p>
+          </div>
+          <div class="invite ticks">
+            <span class="invite-num">02</span>
+            <h4>Argue with it</h4>
+            <p>The first RFCs open with the first release. If a feature is wrong, say so with a playground
+            link showing why. That is how this language will be governed.</p>
+          </div>
+          <div class="invite ticks">
+            <span class="invite-num">03</span>
+            <h4>Build a target</h4>
+            <p>If there's a platform you need and the ecosystem lacks, the Target SDK and its conformance
+            suite are there for that. You don't need anyone's permission.</p>
+          </div>
+        </div>
+        <p class="invitation-close">Haxe's original idea, one language for every platform, is worth keeping, and we built the tools to keep it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="container faq">
+      <p class="eyebrow"><span class="idx">10</span>Questions</p>
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is this a fork of Haxe?</summary>
+        <p>No. hx+ contains Haxe 4.3. Your code compiles unchanged, and keeping it that way is the project's first commitment. hxc is a faithful Haxe 4.3 compiler, and hx+ is a strict superset on top of it.</p>
+      </details>
+      <details>
+        <summary>Why not just contribute to the official compiler?</summary>
+        <p>The problem isn't a shortage of hands; it's structural. An OCaml codebase limits contributors to people who know both worlds well. hxc changes the structure instead. Nothing is held back: everything we build is open, and MPL code can go into GPL projects, so upstream can take any of it.</p>
+      </details>
+      <details>
+        <summary>What stops hx+ from meeting the same fate it responds to?</summary>
+        <p>Incentives and design. The people maintaining this toolchain ship the ecosystem's most used frameworks on it, so keeping it healthy isn't optional for us. It also doesn't depend on a small group's attention: the compiler is written in the language its users already know, correctness is checked by test suites instead of living in a few people's heads, and targets are owned by the communities that need them.</p>
+      </details>
+      <details>
+        <summary>Will my existing code or libraries break?</summary>
+        <p>No. That is the one promise this entire project is architected around. Existing std APIs
+        are stable and stay in place, new syntax is contextual-keyword only, divergence is opt-in,
+        and the narrow exceptions (security fixes, platform withdrawals) are published in advance.</p>
+      </details>
+      <details>
+        <summary>Will my editor and build setup keep working?</summary>
+        <p>Yes. The compiler presents the same CLI and hxml interface, works with existing haxelib
+        workflows, and speaks the same display and diagnostics protocol that powers today's IDE plugins.</p>
+      </details>
+      <details>
+        <summary>Can I try it without installing anything?</summary>
+        <p>Yes. hxc compiles to WebAssembly, so <a href="https://haxe.run">haxe.run</a> runs the
+        compiler entirely in your browser tab. Nothing is uploaded and there is nothing to install.</p>
+      </details>
+      <details>
+        <summary>How would I add a target?</summary>
+        <p>Write it as a package of Haxe source: the capabilities it declares, any filter passes it
+        needs, a generator and a build step. Put it on the class path and rebuild hxc with hxc. The
+        built-in targets are written the same way, and you test yours with the same conformance gate
+        that brought hxc to parity.</p>
+      </details>
+      <details>
+        <summary>Why base on Haxe 4.3 rather than tracking Haxe 5?</summary>
+        <p>Haxe 4.3 is the last release line with the full target matrix, and the target matrix is
+        the point. The language evolves independently on that base, with its own release cadence, and absorbs
+        individual improvements from any source when they serve the goal.</p>
+      </details>
+      <details>
+        <summary>Who controls hx+?</summary>
+        <p>An open RFC process, in public, with working playground demos attached to every proposal.
+        The compatibility guarantees are standing commitments, not preferences.</p>
+      </details>
+      <details>
+        <summary>What license?</summary>
+        <p>Mozilla Public License 2.0 wherever the code is ours to license. File-level copyleft keeps
+        compiler improvements open; applications and engines that embed the toolchain take on no
+        obligations for their own code.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span class="brand brand-footer"><img class="logo" src="assets/logo.svg" alt="">hx<span class="plus">plus</span></span>
+      <p class="footer-tag">A community superset of Haxe.</p>
+    </div>
+    <nav class="footer-links" aria-label="Elsewhere">
+      <a href="https://haxe.run">haxe.run</a>
+      <a href="#whitepaper">Whitepaper</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="footer-meta">
+      <p>&copy; 2026 Dimensionscape LLC</p>
+      <p>hx+ is an independent project. Haxe is a project of the Haxe Foundation.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var navToggle = document.getElementById('navToggle');
+  var nav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) {
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.getElementById('themeToggle').addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('hxplus-theme', next); } catch (e) {}
+  });
+
+  // Highlight the nav entry for the section in view.
+  if ('IntersectionObserver' in window) {
+    var links = {};
+    [].forEach.call(nav.querySelectorAll('a[href^="#"]'), function (a) {
+      links[a.getAttribute('href').slice(1)] = a;
+    });
+    var hero = document.querySelector('.hero');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var a = links[en.target.id];
+        if (!a && en.target !== hero) return;   // unlinked section: keep the last highlight
+        [].forEach.call(nav.querySelectorAll('a'), function (x) { x.classList.remove('current'); });
+        if (a) a.classList.add('current');      // back over the hero: nothing is current
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    if (hero) io.observe(hero);
+    Object.keys(links).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -196,8 +196,7 @@ try {
         </div>
         <div class="card ticks">
           <h3>Cheaper targets</h3>
-          <p>A target is a package of Haxe source compiled into hxc: what it can do, its own filter
-          passes, its generator and its build step. The built-in targets use the same interface, so the people who need a platform can maintain it themselves, and the conformance suite tells them when it's right.</p>
+          <p>Every hxc generator is ordinary Haxe code. Next, every target moves behind one interface: a package of Haxe source compiled into hxc, with what it can do, its own filter passes, its generator and its build step. The built-in targets will use the same interface, so the people who need a platform can maintain it themselves, and the conformance suite tells them when it's right.</p>
         </div>
         <div class="card ticks">
           <h3>More targets, less risk</h3>
@@ -234,9 +233,7 @@ try {
           <li><strong>Self-hosted.</strong> The compiler is written in Haxe, so if you write Haxe you can read, debug and fix your own compiler in the editor you already use.</li>
           <li><strong>Checked, not trusted.</strong> Haxe's unit suite at zero failures, with output and compiler messages compared byte for byte against the reference compiler.</li>
           <li><strong>Native.</strong> Built with hxcpp into a native binary, so being written in Haxe doesn't cost speed.</li>
-          <li><strong>Built to be extended.</strong> The typer, filters and optimizer ask a target
-          what it can do and never which target it is. A target is compiled into hxc from its own
-          package, so any community can own its platform.</li>
+          <li><strong>Built to be extended.</strong> Every generator is ordinary Haxe code, and targets are moving behind one interface, so the typer and optimizer will ask a target what it can do instead of which target it is.</li>
         </ul>
         <div>
           <div class="code-window">
@@ -491,11 +488,9 @@ try {
       </div>
 
       <div class="plug">
-        <p class="shader-kicker">How a target plugs in</p>
+        <p class="shader-kicker">How targets will plug in</p>
         <h3 class="plug-title">The pipeline stays fixed. The target fills its slots.</h3>
-        <p class="plug-lede">The typer, filters and optimizer never test which target is selected; they
-        read what it declared it can do. Everything target-specific arrives through three kinds of
-        contribution, and the built-in targets use exactly the same interface as anyone else's.</p>
+        <p class="plug-lede">We're moving hxc's targets behind one interface, starting with C++. Once they're there, the typer, filters and optimizer stop testing which target is selected and read what it declared it can do instead. Everything target-specific arrives through three kinds of contribution, and the built-in targets use exactly the same interface as anyone else's.</p>
 
         <ol class="flow" aria-label="Compilation pipeline">
           <li class="flow-target"><span class="flow-name">configure</span><span class="flow-who">target</span></li>

@@ -162,7 +162,7 @@ That only helps if the tooling is good, so we're working on:
 - **Structured compiler output.** hxc produces machine-readable diagnostics (the same JSON used for editor support), so the write, compile and fix loop is fast and exact.
 - **A toolchain you already have.** OCaml is hard to set up, for people and for AI agents alike, and an agent that can't build the compiler can't test its own changes. hxc builds with the haxe and hxcpp every Haxe user already has.
 - **Mechanical verification.** Because hxc is checked against the reference compiler, contributions, including AI-assisted ones and entire targets, are tested instead of trusted on sight. That's what makes AI-assisted compiler work safe.
-- **A sandbox.** The haxe.run playground, launching soon, compiles and runs Haxe in the browser, and tools can drive it as well as people.
+- **A sandbox.** The [haxe.run](https://haxe.run) playground compiles and runs Haxe in the browser, and tools can drive it as well as people.
 - **Documentation sized for models.** The language spec, the std and common patterns packaged so current models can write good hx+ without waiting to be trained on it.
 
 AI doesn't automatically favor small languages. It favors languages with a good feedback loop, and that's a tooling problem we can work on.
@@ -199,7 +199,7 @@ The earliest prototypes of this work go back to the Haxe 3 era. Here's where it 
 - hxc compiles itself, and the compiler it builds produces identical output when it compiles itself again.
 - It builds Lime and OpenFL applications.
 - It generates JVM bytecode alongside JavaScript, C++ and cppia, and the Rust backend runs experimentally.
-- Compiled to WebAssembly, hxc runs in the browser. The haxe.run playground is built on that and launches soon.
+- Compiled to WebAssembly, hxc runs in the browser. The [haxe.run](https://haxe.run) playground is built on that, and it's live.
 - hxia runs: a mod compiled once loads into the C++ build and the JavaScript build of the same game and plays the same in both.
 - The target interface from section 3 is designed and under way, starting with C++.
 - The hx+ language features and the new networking package are designed and specified, but not shipped yet.
@@ -265,7 +265,7 @@ Coroutines and structured async on the 4.3 base, more compile-time programming, 
 
 The compiler is out now, and the rest of this document will follow as working software, which is what matters. We're asking for three things:
 
-- **Try it.** Install hxc with `haxelib install hxc` and point it at your existing build. It should just compile, and if it doesn't, that's a bug and we want to hear about it.
+- **Try it.** Install hxc with `haxelib install hxc` and point it at your existing build. Or open [haxe.run](https://haxe.run) and try it in the browser. It should just compile, and if it doesn't, that's a bug and we want to hear about it.
 - **Argue with it.** The first RFCs open with the first release. If a feature is wrong, say so with a playground link that shows why. That's how the language will be run.
 - **Build a target.** If there's a platform you need that the ecosystem doesn't have, the Target SDK and its conformance suite are there for that. You don't need anyone's permission.
 
@@ -279,7 +279,7 @@ Haxe's original idea, one language for every platform, is worth keeping, and we 
 No. hx+ contains Haxe 4.3. Your code compiles unchanged, and keeping it that way is the project's first commitment. hxc is a faithful Haxe 4.3 compiler, and hx+ is a strict superset on top of it.
 
 **Where do I get hxc?**
-From haxelib: `haxelib install hxc`, then `haxelib run hxc build.hxml`. The source is on [GitHub](https://github.com/dimensionscape/hxc).
+From haxelib: `haxelib install hxc`, then `haxelib run hxc build.hxml`. The source is on [GitHub](https://github.com/dimensionscape/hxc). To try it without installing anything, open [haxe.run](https://haxe.run).
 
 **Why not just contribute to the official compiler?**
 The problem isn't a shortage of hands; it's structural. An OCaml codebase limits contributors to people who know both worlds well, and the project's direction is set under constraints we don't share. hxc changes the structure instead. Nothing is held back: everything we build is open, and MPL code can go into GPL projects, so upstream can take any of it.
@@ -305,7 +305,7 @@ Incentives and design. The people maintaining this toolchain ship the ecosystem'
 ---
 
 *Author: Christopher Speciale, Dimensionscape LLC, maintainer of Lime and OpenFL.*
-*Site: [hxplus.org](https://hxplus.org). Compiler: [github.com/dimensionscape/hxc](https://github.com/dimensionscape/hxc) and [haxelib](https://lib.haxe.org/p/hxc/). Playground: haxe.run (launching soon).*
+*Site: [hxplus.org](https://hxplus.org). Compiler: [github.com/dimensionscape/hxc](https://github.com/dimensionscape/hxc) and [haxelib](https://lib.haxe.org/p/hxc/). Playground: [haxe.run](https://haxe.run).*
 
 ### References
 

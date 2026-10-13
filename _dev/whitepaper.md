@@ -39,6 +39,8 @@ hxc is a faithful Haxe 4.3 compiler, written in Haxe:
 
 The result behaves like Haxe 4.3: same command line, same hxml files, same output, same display protocol for editors. The difference is that the compiler is written in the language its users already write every day. If you hit a compiler bug, you can open the compiler in the same editor and debugger you use for your own project, and far more people can contribute to it.
 
+Haxe written in Haxe isn't a new idea. Nicolas Cannasse opened [Haxe-in-Haxe notes](https://github.com/HaxeFoundation/haxe/issues/6843) in 2018, and it's still open. Over the years that thread asked for what hxc is built for: a compiler more people can work on, compiling in the browser, adding targets without OCaml, and running real Haxe as a script inside an app. It's part of why we started.
+
 ### Self-hosting
 
 Most serious languages get here eventually:
@@ -310,6 +312,7 @@ Incentives and design. The people maintaining this toolchain ship the ecosystem'
 - Haxe 4.3 release (last release with C#/Java targets): https://community.haxe.org/t/haxe-4-3-7-released/4611
 - haxelib library index (lime/openfl download counts): https://lib.haxe.org/
 - asys evolution proposal: https://github.com/HaxeFoundation/haxe-evolution/blob/master/proposals/0010-asys.md
+- Haxe-in-Haxe notes, HaxeFoundation/haxe#6843 (2018): https://github.com/HaxeFoundation/haxe/issues/6843
 - Rust bootstrap history (OCaml to self-hosted rustc): https://www.languagelineage.org/languages/rust
 - Go 1.5 self-hosting toolchain: https://www.infoq.com/news/2015/08/go-1-5
 - TypeScript native (Go) port announcement: https://devblogs.microsoft.com/typescript/typescript-native-port/

@@ -50,7 +50,7 @@ try {
       <a href="#toolchain">Toolchain</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#faq">FAQ</a>
-      <a class="nav-out" href="https://haxe.run">Playground <span aria-hidden="true">&#8599;</span></a>
+      <a class="nav-out" href="https://github.com/dimensionscape/hxc">GitHub <span aria-hidden="true">&#8599;</span></a>
     </nav>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span class="tt-sun">&#9728;</span><span class="tt-moon">&#9790;</span></button>
     <a class="btn btn-small" href="#whitepaper">Whitepaper</a>
@@ -80,8 +80,8 @@ try {
           a modern toolchain, and a compiler built so that adding platforms is cheap.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#whitepaper">Read the whitepaper</a>
-          <a class="btn btn-ghost" href="https://haxe.run">Try it in the browser</a>
+          <a class="btn btn-primary" href="https://github.com/dimensionscape/hxc">Get hxc</a>
+          <a class="btn btn-ghost" href="#whitepaper">Read the whitepaper</a>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ try {
             <line class="ray ray-t1" style="--i:1" x1="307.0" y1="205.9" x2="372.5" y2="92.5"/>
             <line class="ray ray-go" style="--i:2" x1="334.1" y1="233.0" x2="447.5" y2="167.5"/>
             <line class="ray ray-plan" style="--i:3" x1="344.0" y1="270.0" x2="475.0" y2="270.0"/>
-            <line class="ray ray-go" style="--i:4" x1="334.1" y1="307.0" x2="447.5" y2="372.5"/>
+            <line class="ray ray-t1" style="--i:4" x1="334.1" y1="307.0" x2="447.5" y2="372.5"/>
             <line class="ray ray-plan" style="--i:5" x1="307.0" y1="334.1" x2="372.5" y2="447.5"/>
             <line class="ray ray-plan" style="--i:6" x1="270.0" y1="344.0" x2="270.0" y2="475.0"/>
             <line class="ray ray-plan" style="--i:7" x1="233.0" y1="334.1" x2="167.5" y2="447.5"/>
@@ -118,7 +118,7 @@ try {
             <g class="node node-t1" transform="translate(372.5 92.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">C++</text></g>
             <g class="node node-go" transform="translate(447.5 167.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">Rust</text></g>
             <g class="node node-plan" transform="translate(475.0 270.0)"><rect x="-21" y="-14" width="42" height="28" rx="14"/><text y="4.6">C#</text></g>
-            <g class="node node-go" transform="translate(447.5 372.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">JVM</text></g>
+            <g class="node node-t1" transform="translate(447.5 372.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">JVM</text></g>
             <g class="node node-plan" transform="translate(372.5 447.5)"><rect x="-29" y="-14" width="58" height="28" rx="14"/><text y="4.6">Wasm</text></g>
             <g class="node node-plan" transform="translate(270.0 475.0)"><rect x="-36.5" y="-14" width="73" height="28" rx="14"/><text y="4.6">Python</text></g>
             <g class="node node-plan" transform="translate(167.5 447.5)"><rect x="-25" y="-14" width="50" height="28" rx="14"/><text y="4.6">Lua</text></g>
@@ -241,13 +241,16 @@ try {
         <div>
           <div class="code-window">
             <div class="code-titlebar"><span class="code-filename">terminal</span></div>
-<pre><code><span class="c"># same CLI, same hxml, same output</span>
-<span class="k">$</span> hxc build.hxml
-<span class="k">$</span> haxe build.hxml
-<span class="k">$</span> diff -r out/hxc out/haxe
-<span class="s">  identical</span></code></pre>
+<pre><code><span class="c"># install it from haxelib</span>
+<span class="k">$</span> haxelib install hxc
+<span class="c"># then use it wherever you would run haxe</span>
+<span class="k">$</span> haxelib run hxc build.hxml</code></pre>
           </div>
-          <p class="code-caption">Same command line, same output.</p>
+          <p class="code-caption">Same command line, same hxml.</p>
+          <div class="code-links">
+            <a class="btn btn-small" href="https://github.com/dimensionscape/hxc">hxc on GitHub</a>
+            <a class="btn btn-small" href="https://lib.haxe.org/p/hxc/">hxc on haxelib</a>
+          </div>
         </div>
       </div>
     </div>
@@ -266,11 +269,10 @@ try {
           same way.
         </p>
         <p class="section-lede section-lede-tight">
-          That is <strong>haxe.run</strong>, the playground every hx+ proposal will ship with, so the
-          community can argue about a feature by running it.
+          That's <strong>haxe.run</strong>, launching soon: the playground every hx+ proposal will ship with, so the community can argue about a feature by running it.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://haxe.run">Open haxe.run</a>
+          <span class="btn btn-ghost" aria-disabled="true">Launching soon</span>
         </div>
       </div>
 
@@ -450,6 +452,7 @@ try {
             <li>C++ <span class="aside">hxcpp</span></li>
             <li>eval <span class="aside">macros</span></li>
             <li>cppia</li>
+            <li>JVM <span class="aside">bytecode</span></li>
           </ul>
         </div>
         <div class="board-col ticks">
@@ -459,7 +462,6 @@ try {
             <li>C# <span class="aside">modern .NET</span></li>
             <li>Java <span class="aside">modern JVM</span></li>
             <li>WebAssembly <span class="aside">WasmGC</span></li>
-            <li class="going">JVM bytecode <span class="aside">in progress</span></li>
             <li>PHP</li>
             <li>Python</li>
             <li>Lua</li>
@@ -630,13 +632,10 @@ try {
       <h2>Roadmap</h2>
       <div class="status-box">
         <p><strong>Where things stand, honestly.</strong> This work did not begin recently: the earliest
-        prototypes date to the Haxe 3 era. Today hxc compiles real projects and passes an 18-gate parity
-        battery against the reference 4.3 compiler: Haxe's unit suite with JavaScript and C++ output
+        prototypes date to the Haxe 3 era. Today hxc 0.6.6 is on haxelib. It compiles real projects and passes an 18-gate parity battery against the reference 4.3 compiler: Haxe's unit suite with JavaScript and C++ output
         byte-identical across the dead-code and analyzer settings, Haxe's sys and threads suites under its interpreter, every hxcpp test suite, the warm compilation server, and a rebuild of its
-        own source. It builds Lime and OpenFL applications, and compiled to WebAssembly it powers the
-        haxe.run playground. hxia runs: one mod, compiled once, loads into the C++ and JavaScript builds of
-        the same game and plays identically. The experimental Rust backend runs, and a JVM bytecode
-        generator is in progress. The hx+ language features and the modern networking package are designed
+        own source. It builds Lime and OpenFL applications, and compiled to WebAssembly it runs in the browser, which is what the haxe.run playground is built on. hxia runs: one mod, compiled once, loads into the C++ and JavaScript builds of
+        the same game and plays identically. hxc also generates JVM bytecode, and the experimental Rust backend runs. The hx+ language features and the modern networking package are designed
         and specified but not yet shipped. They land in the order below, and nothing here should be read as
         claiming otherwise.</p>
       </div>
@@ -669,8 +668,7 @@ try {
         <li>
           <span class="phase-state">Planned</span>
           <h3>Phase 5: Widening the matrix</h3>
-          <p>Rust to full conformance, and JVM bytecode landed as a target package. Clean-sheet C# and
-          Java. WebAssembly on WasmGC. PHP, Python, and Lua carried forward as their conformance suites go
+          <p>Rust to full conformance. Clean-sheet C# and Java. WebAssembly on WasmGC. PHP, Python, and Lua carried forward as their conformance suites go
           green.</p>
         </li>
         <li>
@@ -692,8 +690,8 @@ try {
         The full case: why we built it, the compiler, the compatibility rules, licensing and the plan.
       </p>
       <div class="cta-row cta-center">
-        <a class="btn btn-primary" href="#" aria-disabled="true">Whitepaper (link at launch)</a>
-        <a class="btn btn-ghost" href="#" aria-disabled="true">GitHub (link at launch)</a>
+        <a class="btn btn-primary" href="#" aria-disabled="true">Whitepaper (coming soon)</a>
+        <a class="btn btn-ghost" href="https://github.com/dimensionscape/hxc">hxc on GitHub</a>
       </div>
 
       <div class="invitation">
@@ -752,9 +750,12 @@ try {
         workflows, and speaks the same display and diagnostics protocol that powers today's IDE plugins.</p>
       </details>
       <details>
-        <summary>Can I try it without installing anything?</summary>
-        <p>Yes. hxc compiles to WebAssembly, so <a href="https://haxe.run">haxe.run</a> runs the
-        compiler entirely in your browser tab. Nothing is uploaded and there is nothing to install.</p>
+        <summary>How do I try hxc?</summary>
+        <p>Install it from haxelib with <code>haxelib install hxc</code>, then run
+        <code>haxelib run hxc build.hxml</code> wherever you would run haxe. The package includes the
+        compiler for Windows x64; on other platforms, build it from source (see
+        <a href="https://github.com/dimensionscape/hxc">GitHub</a>). A browser playground at haxe.run is coming, so you will be able
+        to try it with nothing installed.</p>
       </details>
       <details>
         <summary>How would I add a target?</summary>
@@ -792,7 +793,8 @@ try {
       <p class="footer-tag">A community superset of Haxe.</p>
     </div>
     <nav class="footer-links" aria-label="Elsewhere">
-      <a href="https://haxe.run">haxe.run</a>
+      <a href="https://github.com/dimensionscape/hxc">GitHub</a>
+      <a href="https://lib.haxe.org/p/hxc/">haxelib</a>
       <a href="#whitepaper">Whitepaper</a>
       <a href="#faq">FAQ</a>
     </nav>
